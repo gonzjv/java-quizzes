@@ -13,11 +13,12 @@ public class LeastFreqUsedCache<K,V> {
     private int capacity = 0;
     private int leastFreq = 1;
 
-    public LeastFreqUsedCache() {
+    public LeastFreqUsedCache(int capacity) {
         map = new HashMap<>();
         freqMap = new HashMap<>();
         freqListMap = new HashMap<>();
         freqListMap.put(1, new LinkedHashSet<>());
+        this.capacity = capacity;
     }
 
     public void put (K key, V value) {
@@ -49,6 +50,7 @@ public class LeastFreqUsedCache<K,V> {
             map.put(key, value);
             freqMap.put(key, 1);
             freqListMap.get(1).add(key);
+            size++;
 
         }
 
