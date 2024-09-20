@@ -18,4 +18,19 @@ public class StringUtilsTest {
     public void shouldNotBeUnique() {
         assertEquals(false, StringUtils.IsUnique("abba"));
     }
+
+    @Test
+    public void shouldBePermutation() {
+        assertEquals(true, StringUtils.isPermutation("abcd", "bcda"));
+    }
+
+    @Test
+    public void shouldBePermutationSec() {
+        assertEquals(true, StringUtils.isPermutation("football", "ballfoot"));
+    }
+
+    @Test
+    public void shouldNotBePermutation() {
+        assertEquals(false, StringUtils.isPermutation("abcd", "bcdaaa"));
+    }
 }
