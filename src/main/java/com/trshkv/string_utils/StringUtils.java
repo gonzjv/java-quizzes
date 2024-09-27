@@ -35,4 +35,54 @@ public class StringUtils {
 
         return true;
     }
+
+    public static boolean checkOneAwayEdit(String str, String otherStr) {
+        if (str.length() == otherStr.length()) {
+            return checkOneEditReplace(str, otherStr);
+        } else if (str.length() + 1 == otherStr.length()){
+            return checkOneEditInsert(str, otherStr);
+        } else if (str.length() == otherStr.length() + 1){
+            return checkOneEditInsert(otherStr, str);
+        }
+        return false;
+    }
+
+    private static boolean checkOneEditReplace(String str, String otherStr) {
+        boolean foundChange = false;
+
+        for (int i = 0; i < str.length(); i++) {
+            if (str.charAt(i) != otherStr.charAt(i)) {
+                if (true == foundChange) {
+                    return false;
+                }
+
+                foundChange = true;
+            }
+        }
+
+        return true;
+    }
+
+    private static boolean checkOneEditInsert(String str, String longerStr) {
+        int ind = 0;
+        int longerInd = 0;
+        boolean foundChange = false;
+
+        for (int i = 0; i < str.length(); i++) {
+            if (str.charAt(ind) != longerStr.charAt(longerInd)) {
+                longerInd++;
+
+                if (true == foundChange) {
+                    return false;
+                }
+
+                foundChange = true;
+            }
+
+            ind++;
+            longerInd++;
+        }
+
+        return false;
+    }
 }
