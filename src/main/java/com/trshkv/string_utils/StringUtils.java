@@ -83,4 +83,34 @@ public class StringUtils {
 
         return true;
     }
+
+    public static String compressString(String str) {
+        char[] arr = str.toCharArray();
+        StringBuilder builder = new StringBuilder();
+        char current = arr[0];
+        int count = 0;
+
+        for (int i = 0; i < arr.length; ++i){
+            while (i < arr.length && current == arr[i]) {
+                count++;
+                i++;
+            }
+
+            builder.append(current);
+            builder.append(count);
+            count = 1;
+
+            if (i < arr.length) {
+                current = arr[i];
+            }
+        }
+
+        String resultStr = builder.toString();
+        
+        if (resultStr.length() >= str.length()) {
+            return str;
+        }
+
+        return resultStr;
+    }
 }

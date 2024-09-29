@@ -40,4 +40,12 @@ public class StringUtilsTest {
         assertEquals(true, StringUtils.checkOneAwayEdit("perl","perla"));
         assertEquals(false, StringUtils.checkOneAwayEdit("perl","berla"));
     }
+
+    @Test
+    public void shouldCompressString() {
+        assertEquals("aabbccdd", StringUtils.compressString("aabbccdd"));
+        assertEquals("a2b1c4a3", StringUtils.compressString("aabccccaaa"));
+        assertEquals("g3a2m1e3", StringUtils.compressString("gggaameee"));
+        assertEquals("abcd", StringUtils.compressString("abcd"));
+    }
 }
