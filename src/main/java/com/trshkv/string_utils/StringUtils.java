@@ -113,4 +113,23 @@ public class StringUtils {
 
         return resultStr;
     }
+
+    public static  String compressStringImproved(String str){
+        int count = 0;
+        StringBuilder builder = new StringBuilder();
+        String resultStr = null;
+
+        for (int i = 0; i < str.length(); i++) {
+            count++;
+
+            if (i + 1 >= str.length() || str.charAt(i) != str.charAt(i + 1)) {
+                builder.append(str.charAt(i));
+                builder.append(count);
+                count = 0;
+            }
+        }
+
+        resultStr = builder.toString();
+        return resultStr.length() < str.length() ? resultStr : str;
+    }
 }

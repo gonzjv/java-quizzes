@@ -48,4 +48,12 @@ public class StringUtilsTest {
         assertEquals("g3a2m1e3", StringUtils.compressString("gggaameee"));
         assertEquals("abcd", StringUtils.compressString("abcd"));
     }
+
+    @Test
+    public void shouldCompressStringImproved() {
+        assertEquals("aabbccdd", StringUtils.compressStringImproved("aabbccdd"));
+        assertEquals("a2b1c4a3", StringUtils.compressStringImproved("aabccccaaa"));
+        assertEquals("g3a2m1e3", StringUtils.compressStringImproved("gggaameee"));
+        assertEquals("abcd", StringUtils.compressStringImproved("abcd"));
+    }
 }
