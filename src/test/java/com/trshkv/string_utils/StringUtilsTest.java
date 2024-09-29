@@ -36,8 +36,7 @@ public class StringUtilsTest {
 
     @Test
     public void shouldBeOneAwayEdited() {
-        assertEquals(true, StringUtils.checkOneAwayEdit("perl","berl"));
-        assertEquals(true, StringUtils.checkOneAwayEdit("perl","pearl"));
+        assertEquals(true, StringUtils.checkOneAwayEdit("perl","berl"));        assertEquals(true, StringUtils.checkOneAwayEdit("perl","pearl"));
         assertEquals(true, StringUtils.checkOneAwayEdit("perl","perla"));
         assertEquals(false, StringUtils.checkOneAwayEdit("perl","berla"));
     }

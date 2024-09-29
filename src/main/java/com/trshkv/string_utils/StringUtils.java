@@ -66,23 +66,21 @@ public class StringUtils {
     private static boolean checkOneEditInsert(String str, String longerStr) {
         int ind = 0;
         int longerInd = 0;
-        boolean foundChange = false;
 
-        for (int i = 0; i < str.length(); i++) {
+        while (ind < str.length() && longerInd < longerStr.length()) {
             if (str.charAt(ind) != longerStr.charAt(longerInd)) {
-                longerInd++;
-
-                if (true == foundChange) {
+                
+                if (ind != longerInd) {
                     return false;
                 }
-
-                foundChange = true;
+                
+                longerInd++;
             }
 
             ind++;
             longerInd++;
         }
 
-        return false;
+        return true;
     }
 }
