@@ -132,4 +132,14 @@ public class StringUtils {
         resultStr = builder.toString();
         return resultStr.length() < str.length() ? resultStr : str;
     }
+
+    public static boolean isRotaion(String str, String otheString) {
+        if (str.length() != otheString.length()) {
+            return false;
+        }
+
+        String fullString = str + str;
+
+        return fullString.contains(otheString);
+    }
 }

@@ -56,4 +56,10 @@ public class StringUtilsTest {
         assertEquals("g3a2m1e3", StringUtils.compressStringImproved("gggaameee"));
         assertEquals("abcd", StringUtils.compressStringImproved("abcd"));
     }
+
+    @Test
+    public void shouldCheckRotation() {
+        assertEquals(true, StringUtils.isRotaion("bonanza", "nanzabo"));
+        assertEquals(false, StringUtils.isRotaion("bonanza", "nanza"));
+    }
 }
