@@ -23,9 +23,9 @@ public class LinkedListUtils {
         return list;
     }
 
-    public static <T> LinkedListNode<T> getKthElementToLast (LinkedListNode<T> head, int k){
-        LinkedListNode<T> runner = head;
-        LinkedListNode<T> otherRunner = head;
+    public static <T> Node<T> getKthElementToLast (Node<T> head, int k){
+        Node<T> runner = head;
+        Node<T> otherRunner = head;
 
         for (int i = 0; i < k; i++) {
             otherRunner = otherRunner.getNext();
@@ -39,16 +39,16 @@ public class LinkedListUtils {
         return runner;
     }
 
-    public class LinkedListNode<T>{
+    public class Node<T>{
         private T data = null; 
-        private LinkedListNode<T> next = null;
+        private Node<T> next = null;
 
-        public LinkedListNode(T data, LinkedListNode<T> next) {
+        public Node(T data, Node<T> next) {
             this.data = data;
             this.next = next;
         }
 
-        public LinkedListNode<T> getNext(){
+        public Node<T> getNext(){
             return next;
         }
 
@@ -58,5 +58,21 @@ public class LinkedListUtils {
         
     }
 
+    public Node<Integer> partition (Node<Integer> head, int value){
+        return null;
+    }
+
+    private void moveGreateAndEqualsNodes (Node<Integer> head,
+     Node<Integer> otherHead, int val) {
+        Node<Integer> runner = head;
+
+        while(null != runner) {
+            if (runner.getData() >= Integer.valueOf(val)) {
+                Node newNode = new Node<Integer>(runner.getData(), otherHead.next);
+                
+
+            }
+        }
+    }
 }
 
